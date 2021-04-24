@@ -37,7 +37,7 @@ class Collage:
     def _find_100(self, rects, min_rects=1):
         r = self.ratio
         lenrec = len(rects)
-        minarea = min([x*y for x,y in rects])
+        minarea = min([x * y for x, y in rects])
         minh = min([n[1] for n in rects])
         minw = min([n[0] for n in rects])
         totarea = sum([a * b for a, b in rects])
@@ -57,9 +57,14 @@ class Collage:
             packer.pack()
             total_area_used = sum([box.used_area() for box in packer])
             if (total_area_used / (cw * ch)) > best_tot:
-                best_tot = (total_area_used / (cw * ch))
+                best_tot = total_area_used / (cw * ch)
                 champ = (cw, ch)
-            if cw*ch < minarea or cw<minw or ch<minh or len(packer[0]) < min_rects:
+            if (
+                cw * ch < minarea
+                or cw < minw
+                or ch < minh
+                or len(packer[0]) < min_rects
+            ):
                 print("no solution possible for current min_pics")
                 print(f"returning best possible solution {100*best_tot:.2f}")
                 return champ
@@ -132,6 +137,7 @@ class Collage:
                     va="center",
                 )
             plt.show()
+
     def save_collage(self, filename, true_size=False, background_color="#FFFFFF"):
         img = Image.new("RGB", (self.totw, self.toth), color=background_color)
         for rect in self.packer[0]:

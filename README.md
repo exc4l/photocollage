@@ -3,9 +3,9 @@ Stuff about photo collages
 
 If you are looking for something functional which results in a printable collage you should check out [PhotoCollage](https://github.com/adrienverge/PhotoCollage) by Adrien Vergé.
 
-I created this repository because Adrien's program crops pictures, which was undesirable. Therefore, I wanted something that is capable of creating pictures in a given ratio without losing something. Therefore I'm utilizing [rectpacker](https://github.com/secnot/rectpack) to solve the rectangle packing problem of the pictures.
+I created this repository because Adrien's program crops pictures, which was undesirable. Therefore, I wanted something that is capable of creating collages in a given ratio without losing something. I'm utilizing [rectpack](https://github.com/secnot/rectpack) to solve the rectangle packing problem for the pictures.
 
-Currently implemented are two ways of generating collages one which tries to fit all pictures into the given ratio and one that will try to find a collage with the least wasted area.
+Currently implemented are two ways of generating collages one which tries to fit all pictures into the given ratio and one that will try to find a collage with the least wasted area. This might take several minutes for a large collection.
 
 As can be seen in the example code you can plot the result before actually saving the collage.
 true_size=False will divide width and height by 10 before saving it. The actual picture is still in col.img and could be saved via col.img.save().
